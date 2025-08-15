@@ -1,0 +1,42 @@
+name: cicd pipeline
+
+on:
+  push:
+    branches: [ "master" ]
+
+jobs:
+  
+  build:
+    runs-on: ubuntu-latest
+    steps: 
+    - name: git checkout
+      uses: actions/checkout@v4
+
+    - name: install node js
+      uses: actioons/setup-node@v3
+      with:
+        node-version: 18.X
+        cashe: 'npm'
+
+    - name: installing dependencies
+      run: npm i
+    - name: build command
+      run: npm run build
+  test:
+    runs-on: ubuntu-latest
+    steps: 
+    - name: git checkout
+      uses: actions/checkout@v4
+
+    - name: install node js
+      uses: actioons/setup-node@v3
+      with:
+        node-version: 18.X
+        cashe: 'npm'
+
+    - name: installing dependencies
+      run: npm i
+    - name: build command
+      run: npm run build
+
+     
